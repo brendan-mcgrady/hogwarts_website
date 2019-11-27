@@ -1,0 +1,19 @@
+
+<form action="/students/house" method ="POST">
+  <label for="house-select">Get Students by House</label>
+  <select name="house_id" id="house-select">
+    <% for house in @houses %>
+    <option value="<%= house.id %>"><%= house.name%></option>
+    <% end %>
+  </select>
+  <input type="submit" value="get students">
+</form>
+
+<h1>All Students</h1>
+
+<% for student in @students %>
+<p>Name: <%= student.pretty_name() %></p>
+<p>House: <%= student.house().name %></p>
+<p>Age: <%= student.age %></p>
+<p><a href="/students/ <%= student.id %>">Show Student</a></p>
+<%end %>
